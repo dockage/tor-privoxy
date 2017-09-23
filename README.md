@@ -38,37 +38,52 @@ Alternatively you can build the image yourself.
 docker build -t dockage/tor-privoxy github.com/dockage/tor-privoxy
 ```
 
+
+# Quick Start
+
+The quickest way to get started is using [docker-compose](https://docs.docker.com/compose/).
+
+```bash
+wget https://raw.githubusercontent.com/dockage/tor-privoxy/master/docker-compose.yml
+docker-compose up
+```
+
+Alternately, you can manually launch the `tor-privoxy` container.
+
+```bash
+docker run --name='tor-privoxy' -d \
+  -p 9050:9050 \
+  -p 8118:8118 \
+dockage/tor-privoxy:latest
+```
+
 # Maintenance
 
 ## Upgrading
 
 To upgrade to newer releases:
 
-    1. Download the updated Docker image:
+- **Step 1**: Download the updated Docker image:
+```bash
+docker pull dockage/tor-privoxy
+```
 
-  ```bash
-  docker pull dockage/tor-privoxy
-  ```
+- **Step 2**: Stop the currently running image:
+```bash
+docker stop tor-privoxy
+```
 
-    2. Stop the currently running image:
+- **Step 3**: Remove the stopped container
+```bash
+docker rm -v tor-privoxy
+```
 
-  ```bash
-  docker stop tor-privoxy
-  ```
-
-    3. Remove the stopped container
-
-  ```bash
-  docker rm -v tor-privoxy
-  ```
-
-    4. Start the updated image
-
-  ```bash
-  docker run --name tor-privoxy -itd \
-    [OPTIONS] \
-    dockage/tor-privoxy
-  ```
+- **Step 4**: Start the updated image
+```bash
+docker run --name tor-privoxy -d \
+[OPTIONS] \
+dockage/tor-privoxy:latest
+```
 
 ## Shell Access
 
