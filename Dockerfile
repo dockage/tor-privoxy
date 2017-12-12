@@ -1,4 +1,4 @@
-FROM dockage/alpine-openrc
+FROM dockage/alpine-openrc:3.6
 MAINTAINER Morteza Nourelahi Alamdari <me@mortezana.com>
 
 LABEL org.label-schema.name="tor-privoxy" \
