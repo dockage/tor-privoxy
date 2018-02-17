@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+description="Sets up socat relay for Tor control port."
+
+start() {
+    ebegin "Setting up Tor control relay"
+    socat -d tcp-listen:9051,reuseaddr,fork tcp:127.0.0.1:9052 &
+    eend $?
+}
