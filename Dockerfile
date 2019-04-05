@@ -6,6 +6,8 @@ LABEL maintainer="me@mortezana.com" \
     org.label-schema.description="Docker Tor proxy (http and shell) built on Alpine Linux" \
     org.label-schema.license="MIT"
 
+COPY assets/root/ /
+
 RUN apk --no-cache --update add tor privoxy socat \
     && mv /etc/tor/torrc.sample  /etc/tor/torrc \
     && echo "forward-socks5 / 0.0.0.0:9050 ." >> /etc/privoxy/config \
@@ -17,7 +19,5 @@ RUN apk --no-cache --update add tor privoxy socat \
     && rc-update add tor \
     && rc-update add privoxy \
     && rc-update add socat
-
-COPY assets/root/ /
 
 EXPOSE 9050/tcp 9051/tcp 8118/tcp
