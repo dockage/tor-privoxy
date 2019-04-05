@@ -1,11 +1,10 @@
-FROM dockage/alpine-openrc:3.6
-MAINTAINER Morteza Nourelahi Alamdari <me@mortezana.com>
+FROM dockage/alpine:3.9-openrc
 
-LABEL org.label-schema.name="tor-privoxy" \
-      org.label-schema.vendor="Dockage" \
-      org.label-schema.description="Docker Tor proxy (http and shell) built on Alpine Linux" \
-      org.label-schema.vcs-url="https://github.com/dockage/tor-privoxy" \
-      org.label-schema.license="MIT"
+LABEL maintainer="me@mortezana.com" \ 
+    org.label-schema.name="tor-privoxy" \
+    org.label-schema.vendor="Dockage" \
+    org.label-schema.description="Docker Tor proxy (http and shell) built on Alpine Linux" \
+    org.label-schema.license="MIT"
 
 ADD socat.rc /etc/init.d/socat
 RUN apk --no-cache --update add tor privoxy socat \

@@ -1,0 +1,29 @@
+---
+kind: pipeline
+name: dafault
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: dockage/tor-privoxy
+      tags:
+        - 'latest'
+
+---
+kind: pipeline
+name: notify
+
+steps:
+  - name: microbadger
+    image: plugins/webhook
+    settings:
+      urls:
+        - https://hooks.microbadger.com/images/dockage/tor-privoxy/zyLLguzFpj9SWAZgKuR89hYgxzA=
+
+depends_on:
+  - default
