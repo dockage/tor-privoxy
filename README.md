@@ -98,3 +98,10 @@ For debugging and maintenance purposes you may want access the containers shell.
 ```bash
 docker exec -it tor-privoxy sh
 ```
+
+## Quick reference
+* Where to get help: [website](https://dockage.dev/), [documentation](https://dockage.dev/docs/)
+* GitHub repo: [dockage/tor-privoxy](https://github.com/dockage/tor-privoxy)
+* Where to file issues: [GitHub issues](https://github.com/dockage/tor-privoxy/issues)
+* Maintained by: The Dockage team (info at dockage.dev)
+* License(s) - [license](https://github.com/dockage/tor-privoxy/blob/main/LICENSE), check 3rd party documentation for license information
