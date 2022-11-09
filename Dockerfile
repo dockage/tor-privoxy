@@ -1,5 +1,4 @@
-# FROM dockage/alpine:3.9-openrc
-FROM alpine:3.9
+FROM dockage/alpine:3.9-openrc
 
 LABEL maintainer="me@mortezana.com" \ 
     org.label-schema.name="tor-privoxy" \
