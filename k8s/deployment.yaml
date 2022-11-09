@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tor
+  name: tor
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tor
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tor
+    spec:
+      containers:
+      - image: dockage/tor-privoxy
+        name: tor-privoxy
+        ports:
+        - name: sock
+          containerPort: 9050
+        - name: control
+          containerPort: 9051
+        - name: privoxy
+          containerPort: 8118
+        resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tor
+  name: tor
+  namespace: default
+spec:
+  ports:
+  - name: sock
+    port: 9050
+    protocol: TCP
+    targetPort: 9050
+  - name: control
+    port: 9051
+    protocol: TCP
+    targetPort: 9051
+  - name: privoxy
+    port: 8118
+    protocol: TCP
+    targetPort: 8118
+  selector:
+    app: tor
+status:
+  loadBalancer: {}
