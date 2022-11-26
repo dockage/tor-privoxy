@@ -1,6 +1,6 @@
-FROM dockage/alpine:3.9-openrc
+FROM dockage/alpine:3-openrc
 
-LABEL maintainer="me@mortezana.com" \ 
+LABEL maintainer="m@0t1.me" \
     org.label-schema.name="tor-privoxy" \
     org.label-schema.vendor="Dockage" \
     org.label-schema.description="Docker Tor proxy (http and shell) built on Alpine Linux" \
