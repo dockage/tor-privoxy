@@ -10,6 +10,7 @@ COPY assets/root/ /
 
 RUN apk --no-cache --update add tor privoxy socat \
     && mv /etc/tor/torrc.sample  /etc/tor/torrc \
+    && cd /etc/privoxy && for v in *.new ; do mv "$v"  "$(basename "$v" .new)"; done \
     && echo "forward-socks5 / 0.0.0.0:9050 ." >> /etc/privoxy/config \
     && sed -i 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' /etc/privoxy/config \
     && sed -i \
