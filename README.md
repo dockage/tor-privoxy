@@ -35,7 +35,7 @@ docker pull dockage/tor-privoxy
 Alternatively you can build the image yourself.
 
 ```bash
-docker build -t dockage/tor-privoxy github.com/dockage/tor-privoxy
+docker build -t dockage/tor-privoxy https://github.com/dockage/tor-privoxy.git#main
 ```
 
 
