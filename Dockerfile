@@ -1,8 +1,8 @@
-FROM dockage/alpine:3.15.4
+FROM dockage/alpine:3.16.2-openrc
 
 COPY assets/root/ /
 
-RUN apk --no-cache --update add openrc tor privoxy socat \
+RUN apk --no-cache --update add tor privoxy socat \
     && mv /etc/tor/torrc.sample  /etc/tor/torrc \
     && echo "forward-socks5 / 0.0.0.0:9050 ." >> /etc/privoxy/config \
     && sed -i 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' /etc/privoxy/config \
