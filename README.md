@@ -1,7 +1,6 @@
-# tor-privoxy [![Docker Pulls](https://img.shields.io/docker/pulls/dockage/tor-privoxy.svg)](https://hub.docker.com/r/dockage/tor-privoxy/) [![Docker Stars](https://img.shields.io/docker/stars/dockage/tor-privoxy.svg?style=flat)](https://hub.docker.com/r/dockage/tor-privoxy/) [![MicroBadger](https://images.microbadger.com/badges/image/dockage/tor-privoxy.svg)](https://microbadger.com/images/dockage/tor-privoxy) [![Build Status](https://cloud.drone.io/api/badges/dockage/tor-privoxy/status.svg)](https://cloud.drone.io/dockage/tor-privoxy) [![Docker Automated build](https://img.shields.io/docker/automated/dockage/tor-privoxy.svg)](https://hub.docker.com/r/dockage/tor-privoxy/)
+# tor-privoxy [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/dockage/tor-privoxy/ci.yaml?branch=main)](https://github.com/dockage/tor-privoxy/actions/workflows/ci.yaml) [![Docker Pulls](https://badgen.net/docker/pulls/dockage/tor-privoxy?icon=docker&label=pulls)](https://hub.docker.com/r/dockage/tor-privoxy/) [![Docker Stars](https://badgen.net/docker/stars/dockage/tor-privoxy?icon=docker&label=stars)](https://hub.docker.com/r/dockage/tor-privoxy/)
 
 This image combines Tor and Privoxy services to prepare proxy connection for http and shell.
-
 
 ## Contributing
 
