@@ -1,7 +1,10 @@
-tor-privoxy:
-  restart: always
-  image: dockage/tor-privoxy:latest
-  ports:
-    - "9050:9050" # Tor proxy
-    - "9051:9051" # Tor control port
-    - "8118:8118" # Privoxy
+version: "3"
+
+services:
+  tor-privoxy:
+    restart: always
+    image: dockage/tor-privoxy:latest
+    ports:
+      - "9050:9050" # Tor proxy
+      - "9051:9051" # Tor control port
+      - "8118:8118" # Privoxy
