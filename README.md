@@ -62,6 +62,9 @@ The exposed ports are:
 * <code>9051</code>: Tor control port
 * <code>8118</code>: Privoxy (HTTP Proxy)
 
+You can extend <code>torrc</code> configuration by placing configuration file in <code>/etc/torrc.d</code>.
+You must use <code>.conf</code> extension to be include in torrc configuration.
+
 # Maintenance
 
 ## Upgrading
