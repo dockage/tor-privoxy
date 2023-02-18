@@ -2,7 +2,9 @@ FROM dockage/alpine:3.16.2-openrc
 
 COPY assets/root/ /
 
-RUN apk --no-cache --update --upgrade add tor privoxy socat \
+RUN chmod +x /tor.sh
+
+RUN apk --no-cache --update --upgrade add tor privoxy socat bash \
     && mv /etc/tor/torrc.sample  /etc/tor/torrc \
     && mv /etc/privoxy/config.new /etc/privoxy/config \
     && mv /etc/privoxy/default.action.new /etc/privoxy/default.action \
@@ -20,8 +22,11 @@ RUN apk --no-cache --update --upgrade add tor privoxy socat \
         -e 's/#ControlPort 9051/ControlPort 9052/g' \
         -e 's/#%include \/etc\/torrc\.d\/\*\.conf/%include \/etc\/torrc\.d\/\*\.conf/g' \
         /etc/tor/torrc \
+    && rc-update add tor_settings \
     && rc-update add tor \
     && rc-update add privoxy \
-    && rc-update add socat
+    && rc-update add socat 
+
+
 
 EXPOSE 9050/tcp 9051/tcp 8118/tcp
