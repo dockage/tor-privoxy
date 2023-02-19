@@ -1,15 +1,14 @@
 #!/bin/bash
-for env in $(printenv | grep '^TOR_'); do
+while read -r env; do
     name="$(cut -c5- <<< ${env%%=*})"
-    val="\"${env##*=}\""
+    val="${env##*=}"
     [[ "$name" =~ _ ]] && continue
-    [[ "$val" =~ ^\"([0-9]+|false|true)\"$ ]] && val="$(sed 's|"||g' <<< $val)"
     if grep -q "^$name" /etc/tor/torrc; then
         sed -i "/^$name/s| .*| $val|" /etc/tor/torrc
     else
         echo "$name $val" >>/etc/tor/torrc
     fi
-done
+done <<< $(printenv | grep '^TOR_')
 
 LOCATION="$(cut -c10- <<< $(printenv | grep 'LOCATION'))"
 printf "${LOCATION}"
