@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+description="Sets up tor settings from envoriment"
+
+start() {
+    ebegin "Setting up Tor settings"
+    bash /tor.sh
+    eend $?
+}
